@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rm -rf st/ dwm/ slstatus/ slock/ irc/

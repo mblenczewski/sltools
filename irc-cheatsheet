@@ -1,0 +1,17 @@
+cmdline-opts:
+	- h : help
+	- ? : help
+	- l : set logfile
+	- n : set nickname
+	- t : use ssl
+	- u : set username
+	- s : set irc server hostname
+	- p : set irc server port
+
+commands:
+	- j : join channel
+	- l : leave channel
+	- m : private message
+	- r : send raw message
+	- q : quit
+
