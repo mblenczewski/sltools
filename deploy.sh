@@ -22,7 +22,7 @@ APPLY_PATCHES () {
 	done
 }
 
-./clean
+rm -rf st/ dwm/ slstatus/ slock/ irc/
 
 ## st
 git clone $(cat st.git)
@@ -84,7 +84,8 @@ APPLY_PATCHES irc irc
 
 cd irc
 
-make clean install
+make clean && make
+cp irc /usr/local/bin
 
 cd ..
 
