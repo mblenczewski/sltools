@@ -3,22 +3,20 @@
 echo "Please run this script as the root user!"
 read -p "Press enter to continue..." _
 
-CONFIGS=configs
-PATCHES=patches
+CONFIGS=$(pwd)/configs
+PATCHES=$(pwd)/patches
 
 # $1 : program name
-# $2 : target dir
 APPLY_CONF () {
 	for f in $(find $CONFIGS/$1/ -name '*.*'); do
-		cp $f $2
+		cp $f .
 	done
 }
 
 # $1 : program name
-# $2 : target dir
 APPLY_PATCHES () {
 	for f in $(find $PATCHES/$1/ -name '*.diff'); do
-		patch -d$2 <$f
+		patch <$f
 	done
 }
 
@@ -27,10 +25,10 @@ rm -rf st/ dwm/ slstatus/ slock/ irc/
 ## st
 git clone $(cat st.git)
 
-APPLY_CONF st st
-APPLY_PATCHES st st
-
 cd st
+
+APPLY_CONF st
+APPLY_PATCHES st
 
 make clean install
 
@@ -40,10 +38,10 @@ cd ..
 ## dwm
 git clone $(cat dwm.git)
 
-APPLY_CONF dwm dwm
-APPLY_PATCHES dwm dwm
-
 cd dwm
+
+APPLY_CONF dwm
+APPLY_PATCHES dwm
 
 make clean install
 
@@ -53,10 +51,10 @@ cd ..
 ## slstatus
 git clone $(cat slstatus.git)
 
-APPLY_CONF slstatus slstatus
-APPLY_PATCHES slstatus slstatus
-
 cd slstatus
+
+APPLY_CONF slstatus
+APPLY_PATCHES slstatus
 
 make clean install
 
@@ -66,10 +64,10 @@ cd ..
 ## slock
 git clone $(cat slock.git)
 
-APPLY_CONF slock slock
-APPLY_PATCHES slock slock
-
 cd slock
+
+APPLY_CONF slock
+APPLY_PATCHES slock
 
 make clean install
 
@@ -79,10 +77,10 @@ cd ..
 ## irc
 git clone $(cat irc.git)
 
-APPLY_CONF irc irc
-APPLY_PATCHES irc irc
-
 cd irc
+
+APPLY_CONF irc
+APPLY_PATCHES irc
 
 make clean && make
 cp irc /usr/local/bin
