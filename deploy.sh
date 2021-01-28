@@ -8,7 +8,7 @@ PATCHES=$(pwd)/patches
 
 # $1 : program name
 APPLY_CONF () {
-	for f in $(find $CONFIGS/$1/ -name '*.*'); do
+	for f in $(find $CONFIGS/$1/ -type f); do
 		cp $f .
 	done
 }
