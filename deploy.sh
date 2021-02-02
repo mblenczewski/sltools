@@ -8,82 +8,73 @@ PATCHES=$(pwd)/patches
 
 # $1 : program name
 APPLY_CONF () {
-	for f in $(find $CONFIGS/$1/ -type f); do
+	[ -d $CONFIGS/$1 ] && for f in $(find $CONFIGS/$1/ -type f); do
 		cp $f .
 	done
 }
 
 # $1 : program name
 APPLY_PATCHES () {
-	for f in $(find $PATCHES/$1/ -name '*.diff'); do
+	[ -d $PATCHES/$1 ] && for f in $(find $PATCHES/$1/ -name '*.diff'); do
 		patch <$f
 	done
 }
 
-rm -rf st/ dwm/ slstatus/ slock/ irc/
+rm -rf st/ dwm/ slstatus/ slock/ surf/ tabbed/ irc/
 
-## st
 git clone $(cat st.git)
-
 cd st
-
 APPLY_CONF st
 APPLY_PATCHES st
-
 make clean install
-
 cd ..
 
 
-## dwm
 git clone $(cat dwm.git)
-
 cd dwm
-
 APPLY_CONF dwm
 APPLY_PATCHES dwm
-
 make clean install
-
 cd ..
 
 
-## slstatus
 git clone $(cat slstatus.git)
-
 cd slstatus
-
 APPLY_CONF slstatus
 APPLY_PATCHES slstatus
-
 make clean install
-
 cd ..
 
 
-## slock
 git clone $(cat slock.git)
-
 cd slock
-
 APPLY_CONF slock
 APPLY_PATCHES slock
-
 make clean install
-
 cd ..
 
 
-## irc
+git clone $(cat surf.git)
+cd surf
+APPLY_CONF surf
+APPLY_PATCHES surf
+make clean install
+cd ..
+
+
+git clone $(cat tabbed.git)
+cd tabbed
+APPLY_CONF tabbed
+APPLY_PATCHES tabbed
+make clean install
+cd ..
+
+
 git clone $(cat irc.git)
-
 cd irc
-
 APPLY_CONF irc
 APPLY_PATCHES irc
-
 make clean && make
 cp irc /usr/local/bin
-
 cd ..
 
