@@ -74,12 +74,9 @@ static const char *termcmd[] = { TERMINAL, NULL };
 static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbordercolor, "-nf", normfgcolor, "-sb", slctbordercolor, "-sf", slctfgcolor, NULL };
 
-static const char *browsercmd[] = { "librewolf", NULL };
+static const char *browsercmd[] = { "surf", NULL };
 static const char *emailcmd[] = { "thunderbird", NULL };
 static const char *irccmd[] = { TERMINAL, "irc", NULL };
-
-static const char *discordcmd[] = { "discord-ptb", NULL };
-static const char *spotifycmd[] = { "spotify", NULL };
 
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { TERMINAL, "-t", scratchpadname, "-g" "120x34", NULL };
@@ -94,9 +91,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,          spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_m,          spawn,          {.v = emailcmd } },
 	{ MODKEY,                       XK_i,          spawn,          {.v = irccmd } },
-
-	{ MODKEY,                       XK_d,          spawn,          {.v = discordcmd } },
-	{ MODKEY,                       XK_s,          spawn,          {.v = spotifycmd } },
 
 	STACKKEYS(MODKEY,                              focus)
 	STACKKEYS(MODKEY|ShiftMask,                    push)

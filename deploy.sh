@@ -20,13 +20,13 @@ APPLY_PATCHES () {
 	done
 }
 
-rm -rf st/ dwm/ slstatus/ slock/ surf/ tabbed/ irc/
+rm -rf dmenu/ dwm/ irc/ slock/ slstatus/ st/ surf/
 
-git clone $(cat st.git)
-cd st
-APPLY_CONF st
-APPLY_PATCHES st
-make clean install
+
+git clone $(cat dmenu.git)
+cd dmenu
+APPLY_CONF dmenu
+APPLY_PATCHES dmenu
 cd ..
 
 
@@ -34,6 +34,23 @@ git clone $(cat dwm.git)
 cd dwm
 APPLY_CONF dwm
 APPLY_PATCHES dwm
+make clean install
+cd ..
+
+
+git clone $(cat irc.git)
+cd irc
+APPLY_CONF irc
+APPLY_PATCHES irc
+make clean && make
+cp irc /usr/local/bin
+cd ..
+
+
+git clone $(cat slock.git)
+cd slock
+APPLY_CONF slock
+APPLY_PATCHES slock
 make clean install
 cd ..
 
@@ -46,10 +63,10 @@ make clean install
 cd ..
 
 
-git clone $(cat slock.git)
-cd slock
-APPLY_CONF slock
-APPLY_PATCHES slock
+git clone $(cat st.git)
+cd st
+APPLY_CONF st
+APPLY_PATCHES st
 make clean install
 cd ..
 
@@ -59,22 +76,5 @@ cd surf
 APPLY_CONF surf
 APPLY_PATCHES surf
 make clean install
-cd ..
-
-
-git clone $(cat tabbed.git)
-cd tabbed
-APPLY_CONF tabbed
-APPLY_PATCHES tabbed
-make clean install
-cd ..
-
-
-git clone $(cat irc.git)
-cd irc
-APPLY_CONF irc
-APPLY_PATCHES irc
-make clean && make
-cp irc /usr/local/bin
 cd ..
 
