@@ -27,6 +27,7 @@ git clone $(cat dmenu.git)
 cd dmenu
 APPLY_CONF dmenu
 APPLY_PATCHES dmenu
+make clean install
 cd ..
 
 
