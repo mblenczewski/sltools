@@ -133,18 +133,18 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                          7)
 	TAGKEYS(                        XK_9,                          8)
 
-	{ 0, XF86XK_AudioMute,                         spawn,          SHCMD("pamixer -t") },
-	{ 0, XF86XK_AudioRaiseVolume,                  spawn,          SHCMD("pamixer -i5") },
-	{ 0, XF86XK_AudioLowerVolume,                  spawn,          SHCMD("pamixer -d5") },
+	{ 0, XF86XK_AudioMute,                         spawn,          SHCMD("pulsemixer --toggle-mute") },
+	{ 0, XF86XK_AudioRaiseVolume,                  spawn,          SHCMD("pulsemixer --change-volume +5") },
+	{ 0, XF86XK_AudioLowerVolume,                  spawn,          SHCMD("pulsemixer --change-volume -5") },
 	{ 0, XF86XK_AudioMicMute,                      spawn,          SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
-	{ 0, XF86XK_AudioStop,                         spawn,          SHCMD("playerctl stop") },
-	{ 0, XF86XK_AudioPlay,                         spawn,          SHCMD("playerctl play-pause") },
-/* 	{ 0, XF86XK_AudioPlay,                         spawn,          SHCMD("playerctl play") }, */
-/*	{ 0, XF86XK_AudioPause,                        spawn,          SHCMD("playerctl pause") }, */
-	{ 0, XF86XK_AudioNext,                         spawn,          SHCMD("playerctl next") },
-	{ 0, XF86XK_AudioForward,                      spawn,          SHCMD("playerctl position 10+") },
-	{ 0, XF86XK_AudioPrev,                         spawn,          SHCMD("playerctl previous") },
-	{ 0, XF86XK_AudioRewind,                       spawn,          SHCMD("playerctl position 10-") },
+	{ 0, XF86XK_AudioStop,                         spawn,          SHCMD("mpc stop") },
+	{ 0, XF86XK_AudioPlay,                         spawn,          SHCMD("mpc toggle") },
+/* 	{ 0, XF86XK_AudioPlay,                         spawn,          SHCMD("mpc play") }, */
+/*	{ 0, XF86XK_AudioPause,                        spawn,          SHCMD("mpc pause") }, */
+	{ 0, XF86XK_AudioNext,                         spawn,          SHCMD("mpc next") },
+	{ 0, XF86XK_AudioPrev,                         spawn,          SHCMD("mpc prev") },
+	{ 0, XF86XK_AudioForward,                      spawn,          SHCMD("mpc seek +10") },
+	{ 0, XF86XK_AudioRewind,                       spawn,          SHCMD("mpc seek -10") },
 
 	{ 0, XF86XK_MonBrightnessUp,                   spawn,          SHCMD("xbacklight -inc 15") },
 	{ 0, XF86XK_MonBrightnessDown,                 spawn,          SHCMD("xbacklight -dec 15") },
