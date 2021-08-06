@@ -66,13 +66,14 @@ static const char wifi_iface[] = "wlp7s0";
  */
 static const struct arg args[] = {
 	/* function            format           argument */
-	{ battery_perc,        "BAT: %s% | ",   "BAT0" },
-	{ cpu_perc,            "CPU: %s% | ",   NULL },
-	{ ram_perc,            "RAM: %s% | ",   NULL },
-	{ swap_perc,           "SWAP: %s% | ",  NULL },
 	{ netspeed_rx,         "RX: %s| ",      ethn_iface },
 	{ netspeed_tx,         "TX: %s| ",      ethn_iface },
-	{ kernel_release,      "%s | ",         NULL },
-	{ uptime,              "Uptime: %s | ", NULL },
+	{ cpu_perc,            "CPU: %s%% ",    NULL },
+	{ cpu_freq,            "%sHz ",         NULL },
+	{ temp,                "%s C | ",       "/sys/class/thermal/thermal_zone0/temp" },
+	{ ram_perc,            "RAM: %s% | ",   NULL },
+	{ swap_perc,           "SWAP: %s% | ",  NULL },
+	{ battery_perc,        "BAT: %s% | ",   "BAT0" },
+	{ uptime,              "UP: %s | ",     NULL },
 	{ datetime,            "%s",            "%F %T" },
 };

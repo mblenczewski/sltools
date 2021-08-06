@@ -38,9 +38,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const float mfact        = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster        = 1;    /* number of clients in master area */
+static const int resizehints    = 1;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -56,14 +57,6 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
-#define STACKKEYS(MOD,ACTION) \
-	{ MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
-	{ MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
-	{ MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \
-	{ MOD, XK_q,     ACTION##stack, {.i = 0 } },       \
-	{ MOD, XK_a,     ACTION##stack, {.i = 1 } },       \
-	{ MOD, XK_z,     ACTION##stack, {.i = 2 } },       \
-	{ MOD, XK_x,     ACTION##stack, {.i = -1  } },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -92,9 +85,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,          spawn,          {.v = emailcmd } },
 	{ MODKEY,                       XK_i,          spawn,          {.v = irccmd } },
 
-	STACKKEYS(MODKEY,                              focus)
-	STACKKEYS(MODKEY|ShiftMask,                    push)
-
+	{ MODKEY,                       XK_j,          focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,          focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,          setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,          setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_equal,      incnmaster,     {.i = +1 } },
@@ -134,7 +126,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                          8)
 
 	{ 0, XF86XK_AudioMute,                         spawn,          SHCMD("pulsemixer --toggle-mute") },
-	{ 0, XF86XK_AudioRaiseVolume,                  spawn,          SHCMD("pulsemixer --change-volume +5") },
+	{ 0, XF86XK_AudioRaiseVolume,                  spawn,          SHCMD("pulsemixer --change-volume +5 && pulsemixer --max-volume 100") },
 	{ 0, XF86XK_AudioLowerVolume,                  spawn,          SHCMD("pulsemixer --change-volume -5") },
 	{ 0, XF86XK_AudioMicMute,                      spawn,          SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
 	{ 0, XF86XK_AudioStop,                         spawn,          SHCMD("mpc stop") },
