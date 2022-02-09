@@ -71,9 +71,9 @@ static const struct arg args[] = {
 	{ cpu_perc,            "CPU: %s%% ",    NULL },
 	{ cpu_freq,            "%sHz ",         NULL },
 	{ temp,                "%s C | ",       "/sys/class/thermal/thermal_zone0/temp" },
-	{ ram_perc,            "RAM: %s% | ",   NULL },
-	{ swap_perc,           "SWAP: %s% | ",  NULL },
-	{ battery_perc,        "BAT: %s% | ",   "BAT0" },
+	{ ram_perc,            "RAM: %s%% | ",   NULL },
+	{ swap_perc,           "SWAP: %s%% | ",  NULL },
+	{ battery_perc,        "BAT: %s%% | ",   "BAT0" },
 	{ uptime,              "UP: %s | ",     NULL },
 	{ datetime,            "%s",            "%F %T" },
 };
