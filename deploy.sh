@@ -58,8 +58,8 @@ cd ..
 cd slstatus
 git pull
 APPLY_CONF slstatus
-APPLY_PATCHES slstatus PREFIX="$PREFIX"
-make clean install
+APPLY_PATCHES slstatus
+make clean install PREFIX="$PREFIX"
 cd ..
 
 
