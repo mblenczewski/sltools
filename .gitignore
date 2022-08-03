@@ -5,3 +5,5 @@ slock/
 slstatus/
 st/
 surf/
+
+!configs/**
