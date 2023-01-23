@@ -9,7 +9,10 @@ cd sltools
 # edit configs under program specific configs/ subdirectories
 # add patches under program specific patches/ subdirectories
 # start build
-./deploy.sh
+./build.sh
+
+# install using given prefix, using sudo as appropriate
+./install PREFIX="/usr/local"
 
 cd ..
 ```
