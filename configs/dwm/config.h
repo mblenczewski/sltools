@@ -66,7 +66,7 @@ static const char *termcmd[] = { TERMINAL, NULL };
 static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbordercolor, "-nf", normfgcolor, "-sb", slctbordercolor, "-sf", slctfgcolor, NULL };
 
-static const char *browsercmd[] = { "surf", NULL };
+static const char *browsercmd[] = { "surf", "-g", "-N", NULL };
 static const char *emailcmd[] = { TERMINAL, "mutt", NULL };
 static const char *irccmd[] = { TERMINAL, "irc", NULL };
 
