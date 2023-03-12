@@ -78,12 +78,13 @@ static Key keys[] = {
 	/* modifier                     key            function        argument */
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,          {.v = termcmd } },
 
-	{ MODKEY,                       XK_p,          spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,          spawn,          {.v = dmenucmd } },
 
-	{ MODKEY,                       XK_b,          spawn,          {.v = browsercmd } },
-	{ MODKEY,                       XK_m,          spawn,          {.v = emailcmd } },
-	{ MODKEY,                       XK_i,          spawn,          {.v = irccmd } },
+	{ MODKEY|ShiftMask,             XK_b,          spawn,          {.v = browsercmd } },
+	{ MODKEY|ShiftMask,             XK_m,          spawn,          {.v = emailcmd } },
+	{ MODKEY|ShiftMask,             XK_i,          spawn,          {.v = irccmd } },
 
+	{ MODKEY,                       XK_b,          togglebar,      {0} },
 	{ MODKEY,                       XK_j,          focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,          setmfact,       {.f = -0.05} },
@@ -104,7 +105,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,      setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,      togglefloating, {0} },
 
-	{ MODKEY,                       XK_apostrophe, togglescratch, {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_apostrophe, togglescratch,  {.v = scratchpadcmd } },
 
 	{ MODKEY,                       XK_0,          view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,          tag,            {.ui = ~0 } },
@@ -124,10 +125,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                          7)
 	TAGKEYS(                        XK_9,                          8)
 
-	{ 0, XF86XK_AudioMute,                         spawn,          SHCMD("pulsemixer --toggle-mute") },
-	{ 0, XF86XK_AudioRaiseVolume,                  spawn,          SHCMD("pulsemixer --change-volume +5 && pulsemixer --max-volume 100") },
-	{ 0, XF86XK_AudioLowerVolume,                  spawn,          SHCMD("pulsemixer --change-volume -5") },
-	{ 0, XF86XK_AudioMicMute,                      spawn,          SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
+	{ 0, XF86XK_AudioMute,                         spawn,          SHCMD("amixer -c0 set Master toggle-mute") },
+	{ 0, XF86XK_AudioRaiseVolume,                  spawn,          SHCMD("amixer -c0 set Master playback 5%+") },
+	{ 0, XF86XK_AudioLowerVolume,                  spawn,          SHCMD("amixer -c0 set Master playback 5%-") },
+/*	{ 0, XF86XK_AudioMicMute,                      spawn,          SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") }, */
 	{ 0, XF86XK_AudioStop,                         spawn,          SHCMD("mpc stop") },
 	{ 0, XF86XK_AudioPlay,                         spawn,          SHCMD("mpc toggle") },
 /* 	{ 0, XF86XK_AudioPlay,                         spawn,          SHCMD("mpc play") }, */

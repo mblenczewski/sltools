@@ -13,6 +13,7 @@ SOURCE() {
 		__OLD_DIR="$(pwd)"; cd "$1"
 		git reset --hard
 		git clean -qf
+		git pull
 		cd "$__OLD_DIR"
 	fi
 }
