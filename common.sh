@@ -33,4 +33,4 @@ PATCH() {
 	done
 }
 
-TOOLS="dwm slstatus slock st dmenu surf irc"
+TOOLS="dwm slstatus slock st dmenu surf irc dwl statbar"

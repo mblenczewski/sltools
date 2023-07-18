@@ -97,7 +97,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_c,          killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_q,          quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_l,          spawn,          SHCMD("slock") },
-	{ MODKEY|ShiftMask,             XK_Escape,     spawn,          SHCMD("sudo poweroff") },
 
 	{ MODKEY|ShiftMask,             XK_t,          setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_f,          fullscreen,     {.v = &layouts[1]} },
